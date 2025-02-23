@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="harvesting_agribot">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import harvesting_agribot urdf file -->
+    <xacro:include filename="$(find harvesting_agribot_description)/urdf/harvesting_agribot.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="harvesting_agribot.ros2_control.xacro" />
+
+
+    <xacro:harvesting_agribot_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>
