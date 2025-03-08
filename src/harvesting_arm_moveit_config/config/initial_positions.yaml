@@ -1,0 +1,10 @@
+# Default initial positions for harvesting_agribot's ros2_control fake system
+
+initial_positions:
+  base_joint: 1.5707
+  elbow_joint: 0
+  gripper_joint: 0
+  shoulder_joint: 2.8797
+  sub_gripper_joint: 0
+  wrist_pitch_joint: 0
+  wrist_roll_joint: 1.5707

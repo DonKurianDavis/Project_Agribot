@@ -1,0 +1,9 @@
+database/virtual.db
+database/real.db
+build
+install
+log
+GUI
+!database
+!gui/build/
+yolov8n.pt

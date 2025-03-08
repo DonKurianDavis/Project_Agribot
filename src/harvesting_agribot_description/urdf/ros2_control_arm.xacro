@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <ros2_control name="GazeboSystem" type="system">
+      <hardware>
+          <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+      </hardware>
+      <joint name="base_joint">
+          <command_interface name="position"/>
+          <state_interface name="position">
+            <param name="initial_value">0.0</param>
+          </state_interface>
+          <state_interface name="velocity"/>
+      </joint>
+      <joint name="shoulder_joint">
+          <command_interface name="position"/>
+          <state_interface name="position">
+            <param name="initial_value">1.5707</param>
+          </state_interface>
+          <state_interface name="velocity"/>
+      </joint>
+      <joint name="elbow_joint">
+          <command_interface name="position"/>
+          <state_interface name="position">
+            <param name="initial_value">1.5707</param>
+          </state_interface>
+          <state_interface name="velocity"/>
+      </joint>
+      <joint name="wrist_pitch_joint">
+          <command_interface name="position"/>
+          <state_interface name="position">
+            <param name="initial_value">0.0</param>
+          </state_interface>
+          <state_interface name="velocity"/>
+      </joint>
+      <joint name="wrist_roll_joint">
+          <command_interface name="position"/>
+          <state_interface name="position">
+            <param name="initial_value">0.0</param>
+          </state_interface>
+          <state_interface name="velocity"/>
+      </joint>
+  </ros2_control>
+  <gazebo>
+      <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+          <parameters>$(find harvesting_agribot_description)/config/virtual_ros2_controllers.yaml</parameters>
+      </plugin>
+  </gazebo>
+</robot>

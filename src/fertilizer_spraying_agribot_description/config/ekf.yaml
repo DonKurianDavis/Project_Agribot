@@ -1,0 +1,25 @@
+ekf_filter_node:
+    ros__parameters:
+        frequency: 30.0
+        two_d_mode: true
+        publish_tf: true
+        map_frame: map
+        odom_frame: fertilizer_bot/odom
+        base_link_frame: fertilizer_bot/base_link  
+        world_frame: fertilizer_bot/odom           
+        odom0: /fertilizer_bot/diffbot_base_controller/odom
+        odom0_config: [false,  false,  false,
+                       false, false, true,
+                       true, true, false,
+                       false, false, true,
+                       false, false, false]
+        odom0_differential: false
+        
+        imu0: /fertilizer_bot/fertilizer_bot_camera/imu
+        imu0_config: [false, false, false,
+                      false,  false,  true,
+                      false, false, false,
+                      false,  false,  true,
+                      true,  false,  false]
+        imu0_differential: false
+        

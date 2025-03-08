@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <ros2_control name="RealRobot" type="system">
+        <hardware>
+            <plugin>diffdrive_arduino/DiffDriveArduinoHardware</plugin>
+            <param name="front_left_wheel_name">harvesting_bot/Revolute_6</param>
+            <param name="front_right_wheel_name">harvesting_bot/Revolute_8</param>
+            <param name="rear_left_wheel_name">harvesting_bot/Revolute_7</param>
+            <param name="rear_right_wheel_name">harvesting_bot/Revolute_9</param>
+            <param name="loop_rate">30</param>
+            <param name="device">/dev/ttyACM0</param>
+            <param name="baud_rate">115200</param>
+            <param name="timeout_ms">1000</param>
+            <param name="enc_counts_per_rev">1096</param>
+            <param name="pid_p">20</param>
+            <param name="pid_d">12</param>
+            <param name="pid_i">0</param>
+            <param name="pid_o">50</param>
+        </hardware>
+        <joint name="harvesting_bot/Revolute_6">
+            <command_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="harvesting_bot/Revolute_8">
+            <command_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="harvesting_bot/Revolute_7">
+            <command_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="harvesting_bot/Revolute_9">
+            <command_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>    
+    </ros2_control>
+</robot>
