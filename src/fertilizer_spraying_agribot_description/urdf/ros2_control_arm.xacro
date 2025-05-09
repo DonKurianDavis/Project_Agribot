@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <ros2_control name="Fertilizer_bot_GazeboSystem" type="system">
+        <hardware>
+            <!-- By default, set up controllers for simulation. This won't work on real hardware -->
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <joint name="fertilizer_bot/Revolute_11">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="fertilizer_bot/Revolute_13">
+            <command_interface name="position"/>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control>
+    <gazebo>
+        <plugin name="fertilizer_bot_gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+            <ros>
+                <namespace>/fertilizer_bot</namespace>
+            </ros>
+            <parameters>$(find fertilizer_spraying_agribot_description)/config/virtual_ros2_controllers.yaml</parameters>
+            <robot_param_node>/fertilizer_bot/robot_state_publisher</robot_param_node>
+        </plugin>
+    </gazebo>
+</robot>

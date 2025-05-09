@@ -1,0 +1,188 @@
+<?xml version="1.0" ?>
+<robot name="harvesting_agribot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find harvesting_agribot_description)/urdf/materials.xacro" />
+<xacro:arg name="use_ros2_control" default="true" />
+<xacro:include filename="$(find harvesting_agribot_description)/urdf/braccio_model.urdf"/>
+<xacro:if value="$(arg use_ros2_control)">
+  <xacro:include filename="$(find harvesting_agribot_description)/urdf/ros2_control.xacro" />
+</xacro:if>
+<xacro:unless value="$(arg use_ros2_control)">
+  <xacro:include filename="$(find harvesting_agribot_description)/urdf/harvesting_agribot.gazebo"/>
+  <xacro:include filename="$(find harvesting_agribot_description)/urdf/ros2_control_arm.xacro"/>
+</xacro:unless>
+
+<xacro:property name="prefix" value="harvesting_bot"/>
+
+<link name="${prefix}/base_link">
+  <inertial>
+    <origin xyz="2.1869123626052714e-05 -9.040612612999549e-05 0.09460370912297483" rpy="0 0 0"/>
+    <mass value="14.720699302621092"/>
+    <inertia ixx="0.205705" iyy="0.248638" izz="0.272823" ixy="1.3e-05" iyz="2e-05" ixz="1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${prefix}/front_left_wheel_1">
+  <inertial>
+    <origin xyz="-2.160669809736504e-09 -0.005844234502298679 1.1920930215181258e-10" rpy="0 0 0"/>
+    <mass value="1.5499403244605847"/>
+    <inertia ixx="0.000299" iyy="0.000564" izz="0.000299" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1282 -0.1455 -0.0271" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/front_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1282 -0.1455 -0.0271" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/front_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${prefix}/rear_left_wheel_1">
+  <inertial>
+    <origin xyz="2.160669809736504e-09 -0.005844234502298679 1.1920930215181258e-10" rpy="0 0 0"/>
+    <mass value="1.5499403244605847"/>
+    <inertia ixx="0.000299" iyy="0.000564" izz="0.000299" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1282 -0.1455 -0.0271" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/rear_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1282 -0.1455 -0.0271" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/rear_left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${prefix}/front_right_wheel_1">
+  <inertial>
+    <origin xyz="-2.160669809736504e-09 0.005844234502298679 1.1920931949904734e-10" rpy="0 0 0"/>
+    <mass value="1.5499403244605846"/>
+    <inertia ixx="0.000299" iyy="0.000564" izz="0.000299" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1282 0.1455 -0.0271" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/front_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1282 0.1455 -0.0271" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/front_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${prefix}/rear_right_wheel_1">
+  <inertial>
+    <origin xyz="2.160669809736504e-09 0.005844234502298679 1.1920930909070648e-10" rpy="0 0 0"/>
+    <mass value="1.5499403244605846"/>
+    <inertia ixx="0.000299" iyy="0.000564" izz="0.000299" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.1282 0.1455 -0.0271" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/rear_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.1282 0.1455 -0.0271" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/rear_right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="${prefix}_camera_link">
+  <inertial>
+    <origin xyz="0.012632722258798107 1.4517705249875341e-07 0.03" rpy="0 0 0"/>
+    <mass value="0.6086932812705539"/>
+    <inertia ixx="0.000763" iyy="6.8e-05" izz="0.000762" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1225 0.000488 -0.171" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1225 0.000488 -0.171" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find harvesting_agribot_description)/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="${prefix}_camera_optical_joint" type="fixed">
+  <parent link="${prefix}_camera_link"/>
+  <child link="${prefix}_camera_color_frame"/>
+  <origin xyz="0.01 0 0.03" rpy="${-pi/2} 0 ${-pi/2}"/>
+</joint>
+
+<link name="${prefix}_camera_color_frame"></link>
+
+<joint name="${prefix}/Revolute_6" type="continuous">
+  <origin xyz="0.1282 0.1455 0.0271" rpy="0 0 0"/>
+  <parent link="${prefix}/base_link"/>
+  <child link="${prefix}/front_left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${prefix}/Revolute_7" type="continuous">
+  <origin xyz="-0.1282 0.1455 0.0271" rpy="0 0 0"/>
+  <parent link="${prefix}/base_link"/>
+  <child link="${prefix}/rear_left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${prefix}/Revolute_8" type="continuous">
+  <origin xyz="0.1282 -0.1455 0.0271" rpy="0 0 0"/>
+  <parent link="${prefix}/base_link"/>
+  <child link="${prefix}/front_right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${prefix}/Revolute_9" type="continuous">
+  <origin xyz="-0.1282 -0.1455 0.0271" rpy="0 0 0"/>
+  <parent link="${prefix}/base_link"/>
+  <child link="${prefix}/rear_right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="${prefix}/Rigid 14" type="fixed">
+  <origin xyz="-0.115 -0.000488 0.64" rpy="0 0 0"/>
+  <!-- <origin xyz="0.1225 -0.000488 0.171" rpy="0 0 0"/> -->
+  <parent link="${prefix}/base_link"/>
+  <child link="${prefix}_camera_link"/>
+</joint>
+
+
+
+</robot>

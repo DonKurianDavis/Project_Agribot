@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<robot name="agribot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<material name="silver">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
+
+<material name="black">
+  <color rgba="0 0 0 1"/>
+</material>
+
+<material name="orange">
+  <color rgba="0.9764705882352941 0.45098039215686275 0.023529411764705882 1.0" />
+</material>
+
+<material name="white" >
+  <color rgba="1.0 1.0 1.0 1.0" />
+</material>
+
+<material name="blue" >
+  <color rgba="0.011764705882352941 0.2627450980392157 0.8745098039215686 1.0" />
+</material>
+
+</robot>

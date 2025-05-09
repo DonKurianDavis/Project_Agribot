@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: harvesting_agribot_description
+    relative_path: urdf/harvesting_agribot.xacro
+  srdf:
+    relative_path: config/harvesting_agribot.srdf
+  package_settings:
+    author_name: agribotra
+    author_email: agribotra@gmail.com
+    generated_timestamp: 1736564325
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

@@ -1,0 +1,26 @@
+# This config file is used by ros2_control
+harvesting_bot:
+  controller_manager:
+    ros__parameters:
+      update_rate: 30 
+      arm_controller:
+        type: joint_trajectory_controller/JointTrajectoryController
+
+      joint_state_broadcaster:
+        type: joint_state_broadcaster/JointStateBroadcaster
+
+  arm_controller:
+    ros__parameters:
+      joints:
+        - base_joint
+        - shoulder_joint
+        - elbow_joint
+        - wrist_pitch_joint
+        - wrist_roll_joint
+        - gripper_joint
+        - sub_gripper_joint
+      command_interfaces:
+        - position
+      state_interfaces:
+        - position
+        - velocity

@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<robot name="braccio_arm">
+    <link name="braccio_base">
+        <visual>
+            <geometry>
+                <cylinder length="0.01" radius=".053" />
+            </geometry>
+            <material name="black" />
+            <origin rpy="0 0 0" xyz="0 0 0" />
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.01" radius=".053" />
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0 0 0" />
+            <mass value="0.02" />
+            <inertia ixx="0.015" ixy="0" ixz="0" iyy="0.00666666666667" iyz="0" izz="0.0216666666667" />
+        </inertial>
+    </link>
+
+    <link name="link_1">
+        <visual>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_base.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="orange" />
+            <origin rpy="0 0 3.1416" xyz="0 0.004 0" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_base.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <origin rpy="0 0 3.1416" xyz="0 0.004 0" />
+        </collision>
+        <inertial>
+            <origin rpy="0 0 3.1416" xyz="0 0.004 0" />
+            <mass value="0.2" />
+            <inertia ixx="0.015" ixy="0" ixz="0" iyy="0.00666666666667" iyz="0" izz="0.0216666666667" />
+        </inertial>
+    </link>
+
+    <link name="link_2">
+        <visual>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_shoulder.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="orange" />
+            <origin rpy="0 0 0" xyz="-0.0045 0.0055 -0.026" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_shoulder.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.0045 0.0055 -0.026" />
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="-0.0045 0.0055 -0.026" />
+            <mass value="0.001" />
+            <inertia ixx="0.000348958333333" ixy="0" ixz="0" iyy="0.000348958333333" iyz="0" izz="3.125e-05" />
+        </inertial>
+    </link>
+
+    <link name="link_3">
+        <visual>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_elbow.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="orange" />
+            <origin rpy="0 0 0" xyz="-0.0045 0.005 -0.025" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_elbow.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <origin rpy="0 0 0" xyz="-0.0045 0.005 -0.025" />
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="-0.0045 0.005 -0.025" />
+            <mass value="0.001" />
+            <inertia ixx="0.000348958333333" ixy="0" ixz="0" iyy="0.000348958333333" iyz="0" izz="3.125e-05" />
+        </inertial>
+    </link>
+
+    <link name="link_4">
+        <visual>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_wrist_pitch.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="orange" />
+            <origin rpy="0 0 0" xyz="0.003 -0.0004 -0.024" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_wrist_pitch.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.003 -0.0004 -0.024" />
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0.003 -0.0004 -0.024" />
+            <mass value="0.001" />
+            <inertia ixx="0.000348958333333" ixy="0" ixz="0" iyy="0.000348958333333" iyz="0" izz="3.125e-05" />
+        </inertial>
+    </link>
+
+    <link name="link_5">
+        <visual>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_wrist_roll.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="white" />
+            <origin rpy="0 0 0" xyz="0.006 0 0.0" />
+        </visual>
+        <collision>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_wrist_roll.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <origin rpy="0 0 0" xyz="0.006 0 0.0" />
+        </collision>
+        <inertial>
+            <origin rpy="0 0 0" xyz="0.006 0 0.0" />
+            <mass value="0.001" />
+            <inertia ixx="0.000348958333333" ixy="0" ixz="0" iyy="0.000348958333333" iyz="0" izz="3.125e-05" />
+        </inertial>
+    </link>
+
+    <link name="left_gripper_link">
+        <visual>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_left_gripper.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="white" />
+            <origin rpy="0 1.5708 0" xyz="0 -0.012 0" />
+        </visual>
+
+        <inertial>
+            <mass value="0.001" />
+            <inertia ixx="0.000348958333333" ixy="0" ixz="0" iyy="0.000348958333333" iyz="0" izz="3.125e-05" />
+        </inertial>
+
+        <collision>
+            <origin rpy="0 1.5708 0" xyz="0 -0.012 0" />
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_left_gripper.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="right_gripper_link">
+        <visual>
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_right_gripper.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <material name="white" />
+            <origin rpy="0 1.5708 0" xyz="0 -0.012 0.010" />
+        </visual>
+
+        <inertial>
+            <mass value="0.001" />
+            <inertia ixx="0.000348958333333" ixy="0" ixz="0" iyy="0.000348958333333" iyz="0" izz="3.125e-05" />
+        </inertial>
+
+        <collision>
+            <origin rpy="0 1.5708 0" xyz="0 -0.012 0.010" />
+            <geometry>
+                <mesh filename="file://$(find harvesting_agribot_description)/meshes/braccio_right_gripper.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="arm_base_joint" type="fixed">
+        <axis xyz="0 0 1"/>
+        <parent link="harvesting_bot/base_link"/>
+        <child link="braccio_base"/>
+        <origin rpy="0 0 0" xyz="0.08 0.0 0.265"/>
+    </joint>
+    <joint name="base_joint" type="revolute">
+        <axis xyz="0 0 -1" />
+        <origin rpy="0 0 0" xyz="0 0 0" />
+        <parent link="braccio_base" />
+        <child link="link_1" />
+        <limit effort="1000.0" lower="0.0" upper="3.1416" velocity="0.5" />
+    </joint>
+
+    <joint name="shoulder_joint" type="revolute">
+        <axis xyz="1 0 0" />
+        <origin rpy="-1.5708 0 0" xyz="0 -.002 0.072" />
+        <parent link="link_1" />
+        <child link="link_2" />
+        <limit effort="1000.0" lower="0.2618" upper="2.8798" velocity="0.5" />
+    </joint>
+
+    <joint name="elbow_joint" type="revolute">
+        <axis xyz="1 0 0" />
+        <origin rpy="-1.5708 0 0" xyz="0 0 0.125" />
+        <parent link="link_2" />
+        <child link="link_3" />
+        <limit effort="1000.0" lower="0.0" upper="3.1416" velocity="0.5" />
+    </joint>
+
+    <joint name="wrist_pitch_joint" type="revolute">
+        <axis xyz="1 0 0" />
+        <origin rpy="-1.5708 0 0" xyz="0 0 0.125" />
+        <parent link="link_3" />
+        <child link="link_4" />
+        <limit effort="1000.0" lower="0.0" upper="3.1416" velocity="0.5" />
+    </joint>
+
+    <joint name="wrist_roll_joint" type="revolute">
+        <axis xyz="0 0 -1" />
+        <origin rpy="0 0 1.5708" xyz="0 0.0 0.06" />
+        <parent link="link_4" />
+        <child link="link_5" />
+        <limit effort="1000.0" lower="0.0" upper="3.1416" velocity="0.5" />
+    </joint>
+
+    <joint name="gripper_joint" type="revolute">
+        <axis xyz="0 -1 0" />
+        <origin rpy="0 -0.2967 0" xyz="0.010 0 0.03" />
+        <parent link="link_5" />
+        <child link="right_gripper_link" />
+         <limit effort="1000.0" lower="0.1750" upper="1.2741" velocity="0.5" />
+    </joint>
+    <joint name="sub_gripper_joint" type="revolute">
+        <axis xyz="0 1 0" />
+        <origin rpy="0 3.4383 0" xyz="-0.010 0 0.03" />
+        <parent link="link_5" />
+        <child link="left_gripper_link" />
+         <limit effort="1000.0" lower="0.1750" upper="1.2741" velocity="0.5" />
+    </joint>
+    <!-- <material name="orange">
+        <color rgba="0.57 0.17 0.0 1" />
+    </material> -->
+    <!-- <material name="white">
+        <color rgba="0.8 0.8 0.8 1.0" />
+    </material>
+    <material name="black">
+        <color rgba="0 0 0 0.50" />
+    </material> -->
+</robot>
